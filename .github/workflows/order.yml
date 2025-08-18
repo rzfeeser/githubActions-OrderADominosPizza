@@ -1,0 +1,50 @@
+# This workflow demonstrates provides GitHub instructions to order a Pizza from Domino's with Firefox
+
+name: Order a Domino's Pizza with Selenium and Firefox
+
+on:
+  workflow_dispatch:                                  # if a user presses a button
+
+jobs:
+  test:
+    name: Single Browser Selenium Test - Firefox
+    runs-on: ubuntu-latest
+
+    env:
+      FIRST_NAME: ${{ secrets.FIRST_NAME }}   # Referencing the secret
+      LAST_NAME: ${{ secrets.LAST_NAME }}     # Referencing the secret
+      EMAIL: ${{ secrets.EMAIL }}             # Referencing the secret
+      PHONE: ${{ secrets.PHONE }}             # Referencing the secret
+      CITY: ${{ secrets.FIRST_NAME }}   # Referencing the secret
+      STATE: ${{ secrets.FIRST_NAME }}   # Referencing the secret
+
+
+    #container:
+    #  image: node:23
+
+    services:
+      selenium:
+        image: selenium/standalone-firefox                              # if you cannot pull from docker.io
+        options: --shm-size=2gb                                         # ask your team to put the selenium images
+                                                                        # in you organizations image repo
+                                                                        # update the image: path as necessary
+
+    steps:
+      # Step 1 - Copy the code into our Ubuntu Container
+      - uses: actions/checkout@v4
+
+      # Step 2 - Install common dependencies
+      - uses: actions/setup-python@v5
+
+      # Step 3 - Install the requirements documented in requirements.txt
+      - run: python -m pip install requirements.txt
+
+      # Step 4 - Executes the script defined under the "test" property within the "scripts" object in a project's package.json file.
+      - run: python order.py
+
+      # Step 5 - Upload the screenshots as artifacts so we can view them
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Pizza Order Screenshot
+          path: screenshot.png
