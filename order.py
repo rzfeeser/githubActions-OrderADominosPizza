@@ -35,6 +35,7 @@ import time
 # 3rd party libraries
 # python -m pip install selenium
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 # from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
@@ -51,8 +52,11 @@ def main():
     """interaction with Selenium and Firefox"""
 
     try:
+        firefox_options = Options()
+        firefox_options.add_argument("--headless")
+        driver = webdriver.Firefox(options=firefox_options)
         # Open Firefox to Dominos.com
-        driver = webdriver.Firefox()
+        #driver = webdriver.Firefox()
         driver.get("https://www.dominos.com/en/")
         time.sleep(5)
 
