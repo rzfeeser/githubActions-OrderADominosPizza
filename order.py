@@ -7,22 +7,23 @@
    Place an order for a Domino's Pizza using Selenium & Firefox. I'd like to adapt this into a GitHub workflow, so that anyone can order from Domino's using GitHub.
 
    Remarks:
-   - I've been running this exercise for a few years. The Domino's Web API has been surprisingly stable (i.e. I have
-   not needed to update any x-paths).
+   - Domino's seems to be slowly testing the roll out of a new site. The script essentially has two versions of itself, one for the old version of the website, and one for the newer version of the website. There is no need to do anything, the script will auto detect which version of the site is being used.
+   - The script will select the top most location for your City and State
    - Camelot, 'tis a silly place.
 
-   Environmental Variables
+   Environmental Variables:
    CITY - City to order pizza from
    STATE - Two letter state abbreviation
-   LAST_NAME - 
-   FIRST_NAME -
-   EMAIL -
-   PHONE -
+   LAST_NAME - Last name for your order
+   FIRST_NAME - First name for your order
+   EMAIL - Email address for your order
+   PHONE - Phone number for your order
 
    At this time I have Hardcoded:
    Carryout & Cheese, but there is not anything that isn't easily converted to ENV inputs.
 
    GitHub:
+   https://github.com/rzfeeser/githubActions-OrderADominosPizza/
 
    z@iris7.com
    """
