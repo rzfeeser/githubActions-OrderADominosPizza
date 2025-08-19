@@ -47,8 +47,8 @@ jobs:
 
       - name: Setup GeckoDriver
         run: |
-        chmod +x geckodriver
-        sudo mv geckodriver /usr/local/bin/
+          chmod +x geckodriver
+          sudo mv geckodriver /usr/local/bin/
 
       # Step 4 - Executes the script defined under the "test" property within the "scripts" object in a project's package.json file.
       - run: python order.py
