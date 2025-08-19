@@ -15,8 +15,8 @@ jobs:
       LAST_NAME: ${{ secrets.LAST_NAME }}     # Referencing the secret
       EMAIL: ${{ secrets.EMAIL }}             # Referencing the secret
       PHONE: ${{ secrets.PHONE }}             # Referencing the secret
-      CITY: ${{ secrets.FIRST_NAME }}   # Referencing the secret
-      STATE: ${{ secrets.FIRST_NAME }}   # Referencing the secret
+      CITY: ${{ secrets.CITY }}   # Referencing the secret
+      STATE: ${{ secrets.PA }}   # Referencing the secret
 
 
     #container:
