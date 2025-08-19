@@ -1,5 +1,6 @@
 # githubActions-OrderADominosPizza
 Hey gang! Professor Feeser here. This repository lets you use GitHub actions, Firefox and Selenium to order a Dominos Pizza! In order to make this script work, you'll need to set the following GitHub secrets:
+
 - `secrets.EMAIL` - Email address to attach to your order
 - `secrets.PHONE` - Phone number to associate with your Dominos order
 - `secrets.FIRST_NAME` - First name on your Dominos order
@@ -11,6 +12,7 @@ Hey gang! Professor Feeser here. This repository lets you use GitHub actions, Fi
 ## Structure
 ### /
   - **order.py** - This is the script that does the ordering. The order itself is paid for in cash, therefore, for security, the final "order" click is commented out. You need to uncomment this yourself to make the script work correctly.
+  - **requirements.txt** - Python requirements to make the script function.
 
 ### /.github/workflows
   - **order.yml** - A GitHub workflow that uses Selenium to order the pizza.
@@ -31,9 +33,8 @@ This repository is a best practice repository I use for teaching structure and o
 
 
 ## Helpful Notes
-- 
+- When the Workflow concludes, it creates an artifact of a screenshot taken of the last thing Selenium "saw" before concluding. This is valuable for confirming your pizza is on the way, or for troubleshooting. 
 
 
 ## Help & Training
-Since 2010 I've been providing in person and online technical training solutions for large organizations and individuals. If you're looking for a training solution, reach out via my [contact portal at IRIS7](https://iris7.com/contact)
-
+Since 2010 I've been providing in person and online technical training solutions for large organizations and individuals. If you're looking for a training solution, reach out via my [contact portal at IRIS7](https://iris7.com/contact).
