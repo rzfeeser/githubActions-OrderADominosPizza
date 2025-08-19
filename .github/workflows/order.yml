@@ -1,3 +1,5 @@
+## GitHub Action Workflow - Order a Domino's Pizza
+# By RZFeeser of IRIS7 Training
 # This workflow demonstrates provides GitHub instructions to order a Pizza from Domino's with Firefox
 
 name: Order a Domino's Pizza with Selenium and Firefox
@@ -17,10 +19,6 @@ jobs:
       PHONE: ${{ secrets.PHONE }}             # Referencing the secret
       CITY: ${{ secrets.CITY }}   # Referencing the secret
       STATE: ${{ secrets.PA }}   # Referencing the secret
-
-
-    #container:
-    #  image: node:23
 
     services:
       selenium:
@@ -45,17 +43,18 @@ jobs:
           wget https://github.com/mozilla/geckodriver/releases/download/v0.36.0/geckodriver-v0.36.0-linux64.tar.gz
           tar -xzf geckodriver-v0.36.0-linux64.tar.gz
 
+      # Step 5 - Move the GeckoDriver to a usable location
       - name: Setup GeckoDriver
         run: |
           chmod +x geckodriver
           sudo mv geckodriver /usr/local/bin/
 
-      # Step 4 - Executes the script defined under the "test" property within the "scripts" object in a project's package.json file.
+      # Step 6 - Executes the Selenium script
       - run: python order.py
 
-      # Step 5 - Upload the screenshots as artifacts so we can view them
+      # Step 7 - Upload the screenshots as artifacts so we can view them
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Pizza Order Screenshot
+          name: Dominos Pizza Order Screenshot
           path: screenshot.png
