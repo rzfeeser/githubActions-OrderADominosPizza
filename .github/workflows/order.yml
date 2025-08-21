@@ -22,7 +22,7 @@ jobs:
 
     services:
       selenium:
-        image: selenium/standalone-firefox                              # if you cannot pull from docker.io
+        image: docker.io/selenium/standalone-firefox                    # if you cannot pull from docker.io
         options: --shm-size=2gb                                         # ask your team to put the selenium images
                                                                         # in you organizations image repo
                                                                         # update the image: path as necessary
