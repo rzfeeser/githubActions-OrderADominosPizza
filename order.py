@@ -155,13 +155,17 @@ def main():
             elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/header/div/div[1]/div/p/a[2]")
             elem.click()
             time.sleep(5)
-            elem = driver.find_element(By.XPATH, "/html/body/div[6]/div/div/div/div[2]/div/div[1]/div[2]/div/div[1]/div[2]/div/form/fieldset/div[1]/div[3]/div[1]/div/input")
-            elem.send_keys(CITY)     # The CITY is updated with an ENV
-            elem = driver.find_element(By.XPATH, "//*[@id='headlessui-combobox-input-:r9:']")
+          
+            #elem = driver.find_element(By.XPATH, "/html/body/div[6]/div/div/div/div[2]/div/div[1]/div[2]/div/div[1]/div[2]/div/form/fieldset/div[1]/div[3]/div[1]/div/input")
+            #elem.send_keys(CITY)     # The CITY is updated with an ENV
+            #elem = driver.find_element(By.XPATH, "//*[@id='headlessui-combobox-input-:r9:']")
             ## Send the STATE to the input box
-            elem.send_keys(STATE)   # The STATE is updated with an ENV
-            #elem = driver.find_element(By.XPATH, "/html/body/div[6]/div/div/div/div[2]/div/div[1]/div[2]/div/div[1]/div[2]/div/form/fieldset/div[2]/button")
-            elem = driver.find_element(By.XPATH, "//*[@id="headlessui-combobox-input-:r9:"]")  
+            #elem.send_keys(STATE)   # The STATE is updated with an ENV
+            
+            elem = driver.find_element(By.XPATH, "/html/body/div[6]/div/div/div/div[2]/div/div[1]/div[2]/div/div[1]/div[2]/div/form/fieldset/div[1]/div[1]/div/div/input")
+            ## Send the STATE to the input box
+            elem.send_keys('17003')   # The STATE is updated with an ENV          
+            elem = driver.find_element(By.XPATH, "/html/body/div[6]/div/div/div/div[2]/div/div[1]/div[2]/div/div[1]/div[2]/div/form/fieldset/div[2]/button")
             ## Click the button
             elem.click()
             time.sleep(5)
