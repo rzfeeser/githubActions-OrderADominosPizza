@@ -229,16 +229,16 @@ def main():
             #elem.click()
 
             # Opt out of Pizza Rewards
-            elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[1]/fieldset[2]/div[2]")
-            elem.click()
+            # elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[1]/fieldset[2]/div[2]")
+            # elem.click()
 
             # pay cash at the store
             elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[1]/fieldset[3]/fieldset/div[3]")
             elem.click()
 
             # Click the button "PLACE YOUR ORDER"
-            # elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[2]/div/section/div/button")
-            # elem.click()
+            elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[2]/div/section/div/button")
+            elem.click()
 
 
     # regardless if things worked or failed, grab a screenshot
