@@ -92,7 +92,8 @@ def main():
             elem = driver.find_element(By.XPATH, "//*[@id='PostalCode']")
             elem.send_keys('17003')
             time.sleep(2)
-
+            elem.click()
+            time.sleep(2)
           
             ## Click Store Pickup
             elem = driver.find_element(By.XPATH, "/html/body/div[3]/div[2]/div/div/div/div[2]/div[1]/div[3]/div/div[2]/div[2]/a")
