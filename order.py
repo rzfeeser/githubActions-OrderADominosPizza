@@ -70,8 +70,8 @@ def main():
     try:
         firefox_options = Options()
         firefox_options.add_argument("--headless")
-        driver.set_window_size(3456, 2160)
         driver = webdriver.Firefox(options=firefox_options)
+        driver.set_window_size(3456, 2160)
         # Open Firefox to Dominos.com
         #driver = webdriver.Firefox()
         driver.get("https://www.dominos.com/en/")
