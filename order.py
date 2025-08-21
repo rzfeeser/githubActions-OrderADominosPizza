@@ -85,16 +85,12 @@ def main():
             ## Enter Data for Find Store
             elem = driver.find_element(By.XPATH, "//*[@id='City']")
             elem.send_keys(CITY)     # The CITY is updated with an ENV
-            elem = driver.find_element(By.XPATH, "//*[@id='Region']")
+            time.sleep(2)
+            elem = driver.find_element(By.XPATH, "/html/body/div[1]/main/section/article/div/div[2]/div[2]/form/fieldset/div[2]/div[2]/select")
             elem.send_keys(STATE)  # The STATE is updated with an ENV
+            time.sleep(2)
             ## Click Find a Store
             elem = driver.find_element(By.XPATH, "/html/body/div[1]/main/section/article/div/div[2]/div[2]/form/div/button")
-            elem.click()
-            time.sleep(5)
-
-            elem = driver.find_element(By.XPATH,
-                                       "/html/body/div[3]/div[3]/div/div/div/div[2]/div[1]/div[3]/div/div[2]/div[2]/a")
-            ## Click the button to confirm carry-out
             elem.click()
             time.sleep(5)
 
