@@ -29,30 +29,6 @@
    """
 
 
-# capture environmental vars that control how the script runs
-for var in ["CITY", "STATE", "LAST_NAME", "FIRST_NAME", "EMAIL", "PHONE"]:
-    if var in os.environ:
-        globals()[var] = os.environ[var]
-
-# example...
-#if os.environ['CITY']:
-#    CITY = os.environ['CITY']
-
-def main():
-    """interaction with Selenium and Firefox"""
-
-    try:
-        firefox_options = Options()
-        firefox_options.add_argument("--headless")
-        driver = webdriver.Firefox(options=firefox_options)
-        # Open Firefox to Dominos.com
-        #driver = webdriver.Firefox()
-        driver.get("https://www.dominos.com/en/")
-        time.sleep(5)
-
-
-
-
 # standard library
 import os
 import time
