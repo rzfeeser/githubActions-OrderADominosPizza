@@ -151,8 +151,10 @@ def main():
             elem.click()
 
             # Click the button "PLACE YOUR ORDER"
-            # elem = driver.find_element(By.XPATH, "/html/body/div[3]/div[2]/div/form/div[9]/div/div/div[5]/button")
-            # elem.click()
+            # You must uncomment this line for the order to be placed on the OLD website
+            # Be delcious, not malicious!
+            elem = driver.find_element(By.XPATH, "/html/body/div[3]/div[2]/div/form/div[9]/div/div/div[5]/button")
+            elem.click()
         else:
             elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/header/div/div[1]/div/p/a[2]")
             elem.click()
