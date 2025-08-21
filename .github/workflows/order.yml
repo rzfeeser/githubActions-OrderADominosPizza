@@ -8,7 +8,7 @@ on:
   workflow_dispatch:                                  # if a user presses a button
 
 jobs:
-  test:
+  order-a-dominos-pizza:
     name: Single Browser Selenium Test - Firefox
     runs-on: ubuntu-latest
 
