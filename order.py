@@ -230,7 +230,7 @@ def main():
             #elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[1]/fieldset[1]/button/div/span")
             #elem.click()
 
-            driver.execute_script("window.scrollBy(0, 330);")
+            driver.execute_script("window.scrollBy(0, 800);")
             time.sleep(1)
             
             # Opt out of Pizza Rewards
