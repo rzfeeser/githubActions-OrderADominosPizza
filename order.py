@@ -88,7 +88,7 @@ def main():
             #time.sleep(2)
             #elem = driver.find_element(By.XPATH, "/html/body/div[1]/main/section/article/div/div[2]/div[2]/form/fieldset/div[2]/div[2]/select")
             #elem.send_keys(STATE)  # The STATE is updated with an ENV
-            elem = driver.find_element(By.XPATH, "//*[@id="PostalCode"]")//*[@id="PostalCode"]
+            elem = driver.find_element(By.XPATH, "//*[@id='PostalCode']")
             elem.send_keys('17003')
             time.sleep(2)
             ## Click Find a Store
