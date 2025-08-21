@@ -230,10 +230,12 @@ def main():
 
             # Opt out of Pizza Rewards
             elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[1]/fieldset[2]/div[2]/label")
+            driver.execute_script("arguments[0].scrollIntoView(true);", elem)
             elem.click()
 
             # pay cash at the store
             elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[1]/fieldset[3]/fieldset/div[3]/label")
+            driver.execute_script("arguments[0].scrollIntoView(true);", elem)
             elem.click()
 
             # Click the button "PLACE YOUR ORDER"
