@@ -12,8 +12,7 @@
    - Camelot, 'tis a silly place.
 
    Environmental Variables:
-   CITY - City to order pizza from
-   STATE - Two letter state abbreviation
+   ZIPCODE - Zipcode for store to order from
    LAST_NAME - Last name for your order
    FIRST_NAME - First name for your order
    EMAIL - Email address for your order
@@ -41,13 +40,13 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 
 # capture environmental vars that control how the script runs
-for var in ["CITY", "STATE", "LAST_NAME", "FIRST_NAME", "EMAIL", "PHONE"]:
+for var in ["ZIPCODE", "LAST_NAME", "FIRST_NAME", "EMAIL", "PHONE"]:
     if var in os.environ:
         globals()[var] = os.environ[var]
 
 # example...
-#if os.environ['CITY']:
-#    CITY = os.environ['CITY']
+#if os.environ['ZIPCODE']:
+#    ZIPCODE = os.environ['ZIPCODE']
 
 
 # Domino's seems to be testing a new version of their website
@@ -83,14 +82,10 @@ def main():
             elem = driver.find_element(By.XPATH, "/html/body/div[1]/main/section/div/div/a[2]")
             elem.click()
             time.sleep(5)
+          
             ## Enter Data for Find Store
-            #elem = driver.find_element(By.XPATH, "//*[@id='City']")
-            #elem.send_keys(CITY)     # The CITY is updated with an ENV
-            #time.sleep(2)
-            #elem = driver.find_element(By.XPATH, "/html/body/div[1]/main/section/article/div/div[2]/div[2]/form/fieldset/div[2]/div[2]/select")
-            #elem.send_keys(STATE)  # The STATE is updated with an ENV
             elem = driver.find_element(By.XPATH, "//*[@id='PostalCode']")
-            elem.send_keys('17003')
+            elem.send_keys(ZIPCODE)
             time.sleep(2)
             elem.click()
             time.sleep(2)
@@ -155,76 +150,76 @@ def main():
             # Click the button "PLACE YOUR ORDER"
             # You must uncomment this line for the order to be placed on the OLD website
             # Be delcious, not malicious!
-            elem = driver.find_element(By.XPATH, "/html/body/div[3]/div[2]/div/form/div[9]/div/div/div[5]/button")
-            elem.click()
+            # elem = driver.find_element(By.XPATH, "/html/body/div[3]/div[2]/div/form/div[9]/div/div/div[5]/button")
+            # elem.click()
         else:
+            ## Select Delivery
             elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/header/div/div[1]/div/p/a[2]")
             elem.click()
             time.sleep(5)
           
-            #elem = driver.find_element(By.XPATH, "/html/body/div[6]/div/div/div/div[2]/div/div[1]/div[2]/div/div[1]/div[2]/div/form/fieldset/div[1]/div[3]/div[1]/div/input")
-            #elem.send_keys(CITY)     # The CITY is updated with an ENV
-            #elem = driver.find_element(By.XPATH, "//*[@id='headlessui-combobox-input-:r9:']")
-            ## Send the STATE to the input box
-            #elem.send_keys(STATE)   # The STATE is updated with an ENV
-            
+            ## Find Store
             elem = driver.find_element(By.XPATH, "/html/body/div[6]/div/div/div/div[2]/div/div[1]/div[2]/div/div[1]/div[2]/div/form/fieldset/div[1]/div[1]/div/div/input")
-            ## Send the STATE to the input box
-            elem.send_keys('17003')   # The STATE is updated with an ENV          
+            
+            ## Send the ZIPCODE to the input box
+            elem.send_keys(ZIPCODE)   # The ZIPCODE is updated with an ENV          
             elem = driver.find_element(By.XPATH, "/html/body/div[6]/div/div/div/div[2]/div/div[1]/div[2]/div/div[1]/div[2]/div/form/fieldset/div[2]/button")
-            ## Click the button
+            
+            ## Click the button to search for the store
             elem.click()
             time.sleep(5)
+
+            ## Select carryout from the topmost store
             elem = driver.find_element(By.XPATH,
                                        "/html/body/div[6]/div/div/div/div[2]/div/div[1]/div[2]/div/div[1]/div[2]/div/div/section/ul/li[1]/div")
             elem.click()
-            elem.click()
+            elem.click()  ## unclear why clicking the store takes two clicks...
             time.sleep(5)
+
+
+            ## Click the button to confirm carry-out
             elem = driver.find_element(By.XPATH,
                                        "/html/body/div[6]/div/div/div/div[2]/div/div[1]/div[2]/div/div[1]/article/form/div[2]/button")
-            ## Click the button to confirm carry-out
             elem.click()
             time.sleep(5)
-
-            elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[2]/div/div[2]/article/ul/li[1]")
 
             ## Click on Pizza Builder
+            elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[2]/div/div[2]/article/ul/li[1]")
             elem.click()
-            elem.click()
+            elem.click()  ## unclear why clicking the store takes two clicks...
             time.sleep(5)
 
-            ## Add to Order
+            ## Add to Order / Add to Cart (no changes)
             elem = driver.find_element(By.XPATH,
                                        "/html/body/div[1]/section/main/section/div[1]/header[1]/div/section/div[1]/div[2]/button/span[2]")
-            ## Add to Order / Cart
             elem.click()
             time.sleep(3)
 
-            ## PopUp - Cheese it up... Neeeewp
+            ## PopUp - Cheese it up... (no)
             elem = driver.find_element(By.XPATH, "/html/body/div[6]/div/div/div/div[2]/div/div[1]/div/div[2]/div[3]/button[1]")
-
             elem.click()
             time.sleep(5)
 
+            ## Navigate to checkout
             driver.get('https://www.dominos.com/checkout')
             time.sleep(6)
 
-            # Choose first name
+            ## Choose first name
             elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[1]/fieldset[1]/div[1]/div[1]/div/input")
             elem.send_keys(FIRST_NAME)
             time.sleep(1)
 
-            # Choose last name
+            ## Choose last name
             elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[1]/fieldset[1]/div[2]/div[1]/div/input")
             elem.send_keys(LAST_NAME)
             time.sleep(1)
 
-            # Choose email address
+            ## Choose email address
             elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[1]/fieldset[1]/div[3]/div[1]/div/input")
             elem.send_keys(EMAIL)
             time.sleep(1)
 
-            # Set callback phone
+            ## Set callback phone
             elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[1]/fieldset[1]/div[4]/div[1]/div/input")
             for number in PHONE: # for some reason numbers don't always copy and paste correctly
                 elem.send_keys(number) # this seems to be a decent fix
@@ -233,29 +228,27 @@ def main():
             # opt out of offers - finding it difficult to find this click...
             #elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[1]/fieldset[1]/button/div/span")
             #elem.click()
-
-            driver.execute_script("window.scrollBy(0, 800);")
-            time.sleep(1)
             
             # Opt out of Pizza Rewards
             elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[1]/fieldset[2]/div[2]/label")
-            #driver.execute_script("arguments[0].scrollIntoView(true);", elem)
             elem.click()
 
             # pay cash at the store
             elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[1]/fieldset[3]/fieldset/div[3]/label")
-            #driver.execute_script("arguments[0].scrollIntoView(true);", elem)
             elem.click()
 
             # Click the button "PLACE YOUR ORDER"
-            elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[2]/div/section/div/button")
-            elem.click()
-            time.sleep(10)
+            # You must uncomment this line for the order to be placed on the NEW website
+            # Be delcious, not malicious!
+            # elem = driver.find_element(By.XPATH, "/html/body/div[1]/section/main/section/div[1]/div/form/section/section[2]/div/section/div/button")
+            # elem.click()
+            # time.sleep(10)
 
 
     # regardless if things worked or failed, grab a screenshot
     finally:
-        driver.save_screenshot("screenshot.png")
+        driver.save_screenshot("screenshot.png")  # save a screenshot
+        driver.quit()                             # proper way to end the webdriver session
 
 # call main
 if __name__ == "__main__":
