@@ -5,8 +5,7 @@ Hey gang! Professor Feeser here. This repository lets you use GitHub actions, Fi
 - `secrets.PHONE` - Phone number to associate with your Dominos order
 - `secrets.FIRST_NAME` - First name on your Dominos order
 - `secrets.LAST_NAME` - Last name on your Dominos order
-- `secrets.CITY` - City you order Dominos Pizza from
-- `secrets.STATE` - Two letter state abbrivation
+- `secrets.ZIPCODE` - Zipcode to find closest store in your area
 
 
 ## Structure
@@ -22,7 +21,6 @@ Hey gang! Professor Feeser here. This repository lets you use GitHub actions, Fi
 Videos demonstrating the code in this repository are available on the author's [YouTube Channel @CodeWithFeeser](https://www.youtube.com/@CodeWithFeeser):  
 
 - [YouTube CodeWithFeeser - Learn GitHub Actions - Order a Dominos Pizza]()
-- [YouTube CodeWithFeeser - Learn Python - Order a Dominos Pizza with Selenium]()
 
 
 If you found a video helpful, be sure to hit **like** and **subscribe** for weekly lessons from [YouTube Channel @CodeWithFeeser](https://www.youtube.com/@CodeWithFeeser)
@@ -33,7 +31,8 @@ This repository is a best practice repository I use for teaching structure and o
 
 
 ## Helpful Notes
-- When the Workflow concludes, it creates an artifact of a screenshot taken of the last thing Selenium "saw" before concluding. This is valuable for confirming your pizza is on the way, or for troubleshooting. 
+- When the Workflow concludes, it creates an artifact of a screenshot taken of the last thing Selenium "saw" before concluding. This is valuable for confirming your pizza is on the way, or for troubleshooting.
+- Selenium must be able to "see" an element, or it will fail to find that element. Increasing the resolution of the driver fixed lots of issues relating to being able to "find" elements when Selenium was transfered from my Desktop to a container runtime environment 
 
 
 ## Help & Training
