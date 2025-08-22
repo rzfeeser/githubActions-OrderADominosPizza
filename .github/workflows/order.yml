@@ -1,5 +1,5 @@
 ## GitHub Action Workflow - Order a Domino's Pizza
-# By RZFeeser of IRIS7 Training
+# By RZFeeser of IRIS7 Technical Training - https://iris7.com
 # This workflow demonstrates provides GitHub instructions to order a Pizza from Domino's with Firefox
 
 name: Order a Domino's Pizza with Selenium and Firefox
