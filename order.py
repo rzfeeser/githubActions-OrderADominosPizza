@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-"""Author RZFeeser for youtube.com/@CodeWithFeeser
+""" GitHub Action Workflow - Order a Domino's Pizza
+    By RZFeeser of IRIS7 Technical Training - https://iris7.com
+    This Selenium script provides instructions to order a Pizza from Domino's with Firefox
   
-   NOTE: This workflow ACTUALLY ORDERS A PIZZA FROM DOMINOS. In no way you should be using this script maliciously, only deliciously. For safety, I have the final order click commented out of `order.py`. Unless you intend or purhcasing a pizza, do not uncomment this last line. Ultimately, I wrote it as a tool for teaching how one could use GitHub Actions to do just about anything (like order a pizza), as well as creating a fun oppertunity to teach about Selenium testing. 
+   NOTE: This script ACTUALLY ORDERS A PIZZA FROM DOMINOS. In no way you should be using this script maliciously, only deliciously. For safety, I have the final order click commented out of `order.py`. Unless you intend or purhcasing a pizza, do not uncomment this last line. Ultimately, I wrote it as a tool for teaching how one could use GitHub Actions to do just about anything (like order a pizza), as well as creating a fun oppertunity to teach about Selenium testing. 
 
    Objective:
    Place an order for a Domino's Pizza using Selenium & Firefox. I'd like to adapt this into a GitHub workflow, so that anyone can order from Domino's using GitHub.
